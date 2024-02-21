@@ -10,7 +10,7 @@ CC= clang
 CFLAGS= -Wall -Wextra -Werror -I. -g
 
 
-#============= MANDATORY SOUCES =============#
+#============= MANDATORY SOURCES =============#
 SRCS = 	mandatory/main.c \
 		mandatory/free.c \
 		mandatory/open.c \

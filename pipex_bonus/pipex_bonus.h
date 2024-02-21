@@ -36,6 +36,7 @@ typedef struct s_vars{
 	int		hd_r;
 }	t_vars;
 
+char	*ft_strjoin(char const *s1, char const *s2);
 char	**grep_path(char **envp);
 void	ft_heredoc(t_vars *vars, char **argv);
 int		is_here_doc(char *argv);
@@ -64,4 +65,6 @@ void	open_hd_w(t_vars *vars);
 char	*ft_strdup(const char *s);
 char	**find_the_accessible_path(char **path, char *command, t_vars *vars);
 void	verif_fill_command_paths(t_vars *vars, char **argv);
+size_t	ft_strlen(const char *s);
+
 #endif

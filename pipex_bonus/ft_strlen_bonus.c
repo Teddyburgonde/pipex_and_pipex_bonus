@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "pipex_bonus.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_len(const char *s)
 {
 	size_t	i;
 

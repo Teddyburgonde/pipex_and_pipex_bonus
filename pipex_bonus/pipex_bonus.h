@@ -65,6 +65,6 @@ void	open_hd_w(t_vars *vars);
 char	*ft_strdup(const char *s);
 char	**find_the_accessible_path(char **path, char *command, t_vars *vars);
 void	verif_fill_command_paths(t_vars *vars, char **argv);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen_len(const char *s);
 
 #endif

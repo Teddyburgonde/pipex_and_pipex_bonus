@@ -64,16 +64,36 @@ Ps : Je suis pas loin si vous avez besoin.
 de l'isoler avec par quoi elle commence par exemple.
 En effet c'est une seul variable que vous avez besoin. ❌
 
+8. Cela serait bien d'avoir une petite verif pour voir si il y a bien quelque chose dedans le path vous pensez pas ?
 
+9. La parti un peu difficile c'est de decouper le chemin de maniere qu'il soit exactement comme on veut.
+par exemple :
+une variable comme cela : 
+dbz = /manga/japon/super:/manga/color/red:
+et nous on a juste besoin de manga/japon/super/
+il faut bien le decouper. ft_split fais cela tres bien.
 
+10. Quand vous avez decouper , il faut tester pour voir si vous avez access , que votre commande est une commande❌
+existante.
+La fonction access est la pour cela.
 
+11. Bien sur si ce n'est pas un chemin valide , quitte le programme de maniere propre ( gestion leak , message ❌error etc...)
 
+12. Fais un fork pour separer tes processus❌
+si pid == -1 on quitte le propramme
+si pid == 0 sa sera l'enfant
+else sa veut dire qu'on est dans le parent.
 
+13. Dans l'enfant on doit faire les bonnes redirections avec dup2.❌
+STDIN_FILENO c'est entrer standard du terminal.
+STDOUT_FILENO c'est pour la sorti du terminal. 
 
-✅   ❌
+14. Utiliser execve permet d'excetuter votre commande.❌
+Garder a l'esprit que exerve si elle fonctionne elle ferme le processus en cours ( par exemple l'enfant).
+Donc le programme ne lira pas ce qu'il y a apres exerve. 
+Si elle fonctionne pas , tout ce qui y a appres sera lu , sa serait une bonne idee de mettre les close et des free apres. 
 
-
-
+15. Faites la meme chose avec le processus parent.❌
 
 a toujours garder en tete :
 - ./pipex infile cmd1 cmd2 outfile 
@@ -82,108 +102,7 @@ Vous ouvrez 3 fd il faut fermer ses 3 fd.
 - Le pipe a deux parti, pipe[0] sa concerne la lecture (quand on veut lire dedans) et le pipe[1] l'ecriture ( c'est quand on veut ecrire dedans).
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-EN CONSTRUCTION !!! 
-
-
-
-
-
-
-
-### Creation de la struct 
-
-- Creer la struct  ✅
-
-### Faire un Makefile 
-
-- Makefile ✅
-
-### PARSING
-
-- Verifier si il y a le bon nombres d'arguments   ✅
-- Verifier si j'ai le droit d'ouvrir le premier fichier   ✅
-- Verifier si j'ai le droit d'ouvrir le deuxieme fichier ✅
-
-### TROUVER LE CHEMIN ET VOIR SI LA COMMANDE EST VALIDE
-
-- Verifier si la commande est valid : ✅
-	. trouver si le chemin existe (path envp)  ✅
-	. separer le path (ils sont separer par : donc utiliser split) ✅
-	. isoler la parti de la commande qu'il me faut ✅
-	. Creer une function qui :
-		. verifier avec quel parti du path la commande est executable (X_OK) ✅ 
-		. rassemble la commande **arg_cmd1 avec le lien corespondant. ✅
-		. trouver le chemin executable ✅
-		. mettre une valeur dans arg_cmd1[0]✅
-		. Mettre la valeur dans arg_cmd2[0] ✅
-
-### Initialiser les arg_cmd
-
-- Initialiser arg_cmd1 ✅
-- Initialiser arg_cmd2 ✅
-
-### Envoyer les valeurs aux arg_cmd 
-
-- L'envoyer a arg_cmd1[0] ✅
-- L'envoyer a arg_cmd2[0] ✅
-
-
-### Processus enfant 
-
-- Capture la sortie standard et le mettre dans un tube ✅
-- Fermer l'autre bout du tube. ✅
-- Le rediriger vers un fichier d'entrée ✅
-- La commande argv[2] la decouper en deux et la stock dans un tab ✅
-- Verifier si on trouve le bon chemin pour la commande ✅
-- Gestion des cas d'erreur ✅
-- free + message d'erreur + exit ✅
-- Execve (remplace le processus actuel par le nouveau executable, le chemin complet) ✅
-
-
-### Questions diverses 
-
-- Comprendre pourquoi le l'enfant lis ✅
-- Comprendre pourquoi le parent ecris ✅
-- Comprendre le processus parent ❌
-
-### BONUS
-
-- Savoir ce que c'est un heredoc ❌
-- Faire les bonus ❌
-
-### LEAKS
-
-- Gerer tous les leaks ✅
-
-# NORME 
-- Faire la norme : 
-	. Decouper mes fonctions ✅
-
-# Testeur
-
-- Valider au testeur ❌
-
-# Gestion divers bugs 
-
-- Find paths cuted ✅
-- Init_arg with split ✅
-- Refaire le pathfinder ✅
-- Refaire le parsing  ✅
-
-   ✅ ❌
+✅ ❌
  
  
 > [!IMPORTANT]

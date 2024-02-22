@@ -40,7 +40,7 @@ Si il y a une erreur dans outfile on fait quoi ?
    int main(int argc, char **argv , char *envp[]
 Si tu veux voir a quoi sa ressemble sa serait une TRES BONNE IDEE d'imprimer le double tableau envp.
 
-6. Apres l'avoir imprimer vous devez voir pleins de lignes et dans une de ses lignes il y a un chemin qui ❌ il y a un chemin vers le system que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...
+5. Apres l'avoir imprimer vous devez voir pleins de lignes et dans une de ses lignes il y a un chemin qui ❌ il y a un chemin vers le system que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...
 
 SHELL=/bin/bash
 TERM=xterm
@@ -57,10 +57,10 @@ LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
 _=/usr/bin/printenv
 
-8. Vous voulez savoir c'est lequel ? A vous de chercher c'est laquel qui vous faut. ❌ 
+6. Vous voulez savoir c'est lequel ? A vous de chercher c'est laquel qui vous faut. ❌ 
 Ps : Je suis pas loin si vous avez besoin.
 
-9. Quand vous pensez savoir c'est laquel il faut l'isoler , sa serait une bonne idee ou pas a vous de voir
+7. Quand vous pensez savoir c'est laquel il faut l'isoler , sa serait une bonne idee ou pas a vous de voir
 de l'isoler avec par quoi elle commence par exemple.
 En effet c'est une seul variable que vous avez besoin. ❌
 

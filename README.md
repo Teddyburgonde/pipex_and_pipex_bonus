@@ -80,9 +80,22 @@ a toujours garder en tete :
 - Tout ce qui est ouvert doit etre fermer !
 Vous ouvrez 3 fd il faut fermer ses 3 fd.
 - Le pipe a deux parti, pipe[0] sa concerne la lecture (quand on veut lire dedans) et le pipe[1] l'ecriture ( c'est quand on veut ecrire dedans).
-- 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+EN CONSTRUCTION !!! 
 
 
 

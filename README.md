@@ -1,5 +1,11 @@
 # PIPEX
 
+> [!IMPORTANT]
+> Ce Read-me est regulierement mis a jour
+> derniere mise a jour vendredi 23/02/2024 a 11h16
+
+
+
 ### Apprendre les fonctions : 
 
 - access  ❌
@@ -25,21 +31,21 @@ Ici, le programme va cat ce qu'il y dans infile (le fichier d'entrer) et l'autre
 les deux processus (la dans cette exemple les deux cat) communiquent entre grace au pipe. Sans pipe il n'y a pas de possibilités de faire communiquer deux commandes. 
 Vous verrez par la suite que vous devez dire qu'elle commande doit s'excuser avant et qu'elle commande doit attendre l'autre.
 
-2. Garder toujours a l'esprit que la commande a taper dans le terminal c'est : ❌
+2.la commande a taper dans le terminal c'est : ❌
 ./pipex infile cmd1 cmd2 outfile
 Donc vous pouvez deja fait une petite verife si le nombre d'argument n'est pas le bon on affiche un
-message d'erreur avec un Exit  
+message d'erreur avec un Exit. 
 
 3. Pour pouvoir utiliser les fichiers il faut donc forcement les ouvrir. ❌
-   Infile on est d'accord qu'on veut juste lire le contenu et outfile on veut pouvoir ecrire dedans,
+   Infile on veut juste lire le contenu et outfile on veut pouvoir ecrire dedans,
    le cree si il n'existe pas et eface le contenu avant d'ecrire dedans.
 Si il y a une erreur dans outfile on fait quoi ?
 
-4. Est ce que tu sais c'est quoi une variable d'environnement ? C'est un fichier system ( un fichier qui ❌ n'est pas stocker sur ton ordi mais plutot sur ton psyteme d'exploitation.
+4. Une variable d'environnement ? C'est un fichier system ( un fichier qui n'est pas stocker sur ton ordi mais plutot sur ton systeme d'exploitation.
    int main(int argc, char **argv , char *envp[]
-Si tu veux voir a quoi sa ressemble sa serait une TRES BONNE IDEE d'imprimer le double tableau envp.
+Si tu veux voir a quoi sa ressemble sa serait une TRES BONNE IDEE d'imprimer le double tableau envp.❌
 
-5. Apres l'avoir imprimer vous devez voir pleins de lignes et dans une de ses lignes il y a un chemin qui ❌ il y a un chemin vers le fichier que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...
+5. Vous devez voir pleins de lignes et dans une de ses lignes il y a le chemin fichier que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...❌
 
 SHELL=/bin/bash
 TERM=xterm
@@ -56,12 +62,10 @@ LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
 _=/usr/bin/printenv
 
-6. Vous voulez savoir c'est lequel ? A vous de chercher c'est laquel qui vous faut. ❌ 
+6. Vous voulez savoir c'est lequel ? A vous de chercher =). ❌ 
 Ps : Je suis pas loin si vous avez besoin.
 
-7. Quand vous pensez savoir c'est laquel il faut l'isoler , sa serait une bonne idee ou pas a vous de voir
-de l'isoler avec par quoi elle commence par exemple.
-En effet c'est une seul variable que vous avez besoin. ❌
+7. Vous l'avez trouver ? Alors isoler la ! Peut etre que strncmp peut faire cela.❌
 
 8. Cela serait bien d'avoir une petite verif pour voir si il y a bien quelque chose dedans le path vous pensez pas ?
 
@@ -70,9 +74,9 @@ par exemple :
 une variable comme cela : 
 dbz = /manga/japon/super:/manga/color/red:
 et nous on a juste besoin de manga/japon/super/
-il faut bien le decouper. ft_split fais cela tres bien.
+il faut bien le decouper et ajouter le petit baton "/". ft_split et ft_strjoin font cela tres bien. ❌
 
-10. Quand vous avez decouper , il faut tester pour voir si vous avez access , que votre commande est une commande❌
+10. Fini le decoupage ? tester pour voir si vous avez access , que votre commande est une commande❌
 existante.
 La fonction access est la pour cela.
 
@@ -104,5 +108,3 @@ Vous ouvrez 3 fd il faut fermer ses 3 fd.
 ✅ ❌
  
  
-> [!IMPORTANT]
-> Source : https://reactive.so/post/42-a-comprehensive-guide-to-pipex

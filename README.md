@@ -21,10 +21,9 @@ Commencons :
 Explication :
 ./pipex infile cat cat outfile 
 
-Ici le programme vas cat ce qu'il y dans infile (le fichier d'entrer ) et l'autre commande cat va cat ce qui a ete cat dans infile et le met dans outfile. 
-les deux cat (les deux processus doivent pouvoir communiquer entre eux 0 et pour cela on utile un pipe. 
-Vous verez il y a un ordre dans les excutions des commandes et sur le fait que l'un doit attendre l'autre terminer pour pouvoir s'executer.
-Imaginer si tout les cat s'executer en meme temps sa serait un beau bordel. 
+Ici, le programme va cat ce qu'il y dans infile (le fichier d'entrer) et l'autre commande cat va  recuperer ce qui a été cat au début dans infile et il le redirigeait dans outfile. 
+les deux processus (la dans cette exemple les deux cat) communiquent entre grace au pipe. Sans pipe il n'y a pas de possibilités de faire communiquer deux commandes. 
+Vous verrez par la suite que vous devez dire qu'elle commande doit s'excuser avant et qu'elle commande doit attendre l'autre.
 
 2. Garder toujours a l'esprit que la commande a taper dans le terminal c'est : ❌
 ./pipex infile cmd1 cmd2 outfile

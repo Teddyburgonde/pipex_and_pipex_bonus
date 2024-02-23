@@ -4,6 +4,8 @@
 > Ce Read-me est regulierement mis a jour
 > derniere mise a jour vendredi 23/02/2024 a 11h16
 
+>Fais moi des retours que je puisse rendre plus compressible ce readme. 
+
 
 
 ### Apprendre les fonctions : 

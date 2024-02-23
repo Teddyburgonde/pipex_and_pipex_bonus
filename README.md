@@ -19,11 +19,7 @@
 - wait  ❌
 - Exit  ❌
 
-### Comprendre l'importance de fork dans ce projet 
-
-- Comprendre pourquoi utiliser fork  ❌ 
-
-Commencons : 
+### Commencons : 
 
 1. Comprendre ce que doit faire pipex. ❌
 Explication :

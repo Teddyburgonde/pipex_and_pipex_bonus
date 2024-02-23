@@ -40,7 +40,7 @@ Si il y a une erreur dans outfile on fait quoi ?
    int main(int argc, char **argv , char *envp[]
 Si tu veux voir a quoi sa ressemble sa serait une TRES BONNE IDEE d'imprimer le double tableau envp.
 
-5. Apres l'avoir imprimer vous devez voir pleins de lignes et dans une de ses lignes il y a un chemin qui ❌ il y a un chemin vers le system que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...
+5. Apres l'avoir imprimer vous devez voir pleins de lignes et dans une de ses lignes il y a un chemin qui ❌ il y a un chemin vers le fichier que vous aurez besoin, celui ou il y a toute les fonctions pour les commandes, comme ls , cat etc...
 
 SHELL=/bin/bash
 TERM=xterm

@@ -4,7 +4,7 @@
 > Ce Read-me est regulierement mis a jour
 > derniere mise a jour vendredi 23/02/2024 a 11h27
 
->Faite moi des retours que je puisse rendre plus compressible ce readme. 
+>Faites-moi des retours que je puisse rendre plus comprehensible ce readme. 
 
 
 
@@ -26,8 +26,8 @@ Explication :
 ./pipex infile cat cat outfile 
 
 Ici, le programme va cat ce qu'il y dans infile (le fichier d'entrer) et l'autre commande cat va  recuperer ce qui a été cat au début dans infile et il le redirigeait dans outfile. 
-les deux processus (la dans cette exemple les deux cat) communiquent entre grace au pipe. Sans pipe il n'y a pas de possibilités de faire communiquer deux commandes. 
-Vous verrez par la suite que vous devez dire qu'elle commande doit s'excuser avant et qu'elle commande doit attendre l'autre.
+les deux processus (la dans cette exemple les deux cat) communiquent entre eux grace au pipe. Sans pipe il n'y a pas de possibilités de faire communiquer deux commandes. 
+Vous verrez par la suite que vous devez dire quelle commande doit s'excuser avant et quelle commande doit attendre l'autre.
 
 ❌ 2.la commande a taper dans le terminal c'est : 
 ./pipex infile cmd1 cmd2 outfile
@@ -36,7 +36,7 @@ message d'erreur avec un Exit.
 
 ❌ 3. Pour pouvoir utiliser les fichiers il faut donc forcement les ouvrir. 
    Infile on veut juste lire le contenu et outfile on veut pouvoir ecrire dedans,
-   le cree si il n'existe pas et eface le contenu avant d'ecrire dedans.
+   le cree s'il n'existe pas et effacer le contenu avant d'ecrire dedans.
 Si il y a une erreur dans outfile on fait quoi ?
 
 ❌ 4. Une variable d'environnement ? C'est un fichier system ( un fichier qui n'est pas stocker sur ton ordi mais plutot sur ton systeme d'exploitation.

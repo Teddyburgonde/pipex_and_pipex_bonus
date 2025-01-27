@@ -104,5 +104,179 @@ Vous ouvrez 3 fd il faut fermer ses 3 fd.
 
 
 ✅ ❌
- 
+
+# **pipex**
+
+## Introduction
+
+Le projet **pipex** consiste à recréer une partie des fonctionnalités de la commande shell suivante : 
+
+```bash
+< infile cmd1 | cmd2 > outfile
+```
+
+L'objectif est d'utiliser des concepts de programmation avancés en C, tels que les processus, les redirections, et les pipes. Ce projet permet de mieux comprendre la communication inter-processus.
+
+---
+
+## Fonctionnalités
+
+Votre programme devra être lancé avec les arguments suivants :
+
+```bash
+./pipex infile cmd1 cmd2 outfile
+```
+
+### Explication
+- **infile** : Fichier d'entrée, contenant les données à traiter.
+- **cmd1** : Première commande qui lit les données depuis le fichier **infile**.
+- **cmd2** : Deuxième commande qui utilise la sortie de **cmd1** comme entrée.
+- **outfile** : Fichier de sortie dans lequel les résultats de **cmd2** seront écrits.
+
+### Exemple :
+```bash
+./pipex infile "cat" "wc -l" outfile
+```
+
+---
+
+## Étapes pour réussir le projet
+
+### 1. **Comprendre le fonctionnement de pipex**
+
+Votre programme doit recréer cette commande shell : 
+```bash
+< infile cmd1 | cmd2 > outfile
+```
+Voici ce qui se passe :
+1. Le fichier **infile** est ouvert et son contenu est envoyé à **cmd1**.
+2. La sortie de **cmd1** est redirigée vers **cmd2** grâce à un pipe.
+3. Enfin, la sortie de **cmd2** est écrite dans le fichier **outfile**.
+
+---
+
+### 2. **Les fonctions à apprendre**
+
+Vous devez comprendre et utiliser les fonctions suivantes :
+- `access`
+- `dup2`
+- `execve`
+- `fork`
+- `pipe`
+- `wait`
+- `exit`
+
+Prenez le temps de lire leur documentation et de tester de petits exemples pour comprendre leur fonctionnement.
+
+---
+
+### 3. **Validation des arguments**
+
+Commencez par vérifier que le programme est appelé avec le bon nombre d'arguments :
+```bash
+./pipex infile cmd1 cmd2 outfile
+```
+- Si ce n'est pas le cas, affichez un message d'erreur et terminez le programme proprement.
+
+---
+
+### 4. **Gestion des fichiers**
+
+- **Ouvrir infile et outfile** :
+  - **infile** doit être ouvert en lecture seulement.
+  - **outfile** doit être ouvert en écriture. S'il n'existe pas, créez-le. S'il existe déjà, écrasez son contenu.
+- Gérez les erreurs si l'ouverture de ces fichiers échoue.
+
+---
+
+### 5. **Comprendre les variables d'environnement**
+
+Dans la fonction `main`, vous recevez une variable `envp`. Il s'agit d'un tableau contenant les variables d'environnement du système. 
+
+Imprimez ce tableau pour comprendre son contenu. Recherchez une ligne qui commence par `PATH`, car elle contient les chemins nécessaires pour trouver les exécutables des commandes (`cmd1`, `cmd2`).
+
+---
+
+### 6. **Isoler le chemin PATH**
+
+- Extraire la ligne qui commence par `PATH`.
+- Découpez les différents chemins en utilisant `:` comme séparateur.
+- Ajoutez un `/` à la fin de chaque chemin pour faciliter la recherche des commandes.
+
+---
+
+### 7. **Vérifier l'accès aux commandes**
+
+- Combinez chaque chemin du `PATH` avec la commande (`cmd1` ou `cmd2`) et utilisez la fonction `access` pour vérifier si la commande existe.
+- Gérez les cas où la commande n'est pas valide.
+
+---
+
+### 8. **Créer des processus avec `fork`**
+
+Utilisez `fork` pour créer un processus enfant :
+- Si `fork` échoue, terminez le programme proprement.
+- Si le processus est un enfant (PID = 0), gérez les redirections (entrée/sortie) et exécutez la commande avec `execve`.
+- Si le processus est le parent, attendez la fin de l'exécution de l'enfant avec `wait`.
+
+---
+
+### 9. **Utiliser des pipes pour la communication**
+
+Un pipe est un moyen de communication entre deux processus :
+- `pipe[0]` est utilisé pour lire.
+- `pipe[1]` est utilisé pour écrire.
+- Configurez correctement les redirections avec `dup2` pour relier la sortie de **cmd1** à l'entrée de **cmd2**.
+
+---
+
+### 10. **Exécuter les commandes avec `execve`**
+
+- `execve` remplace le processus en cours par une commande à exécuter.
+- Si `execve` fonctionne, elle termine le processus.
+- Si elle échoue, affichez une erreur et libérez toutes les ressources avant de quitter.
+
+---
+
+### 11. **Gérer les erreurs et les fuites mémoire**
+
+- Fermez tous les descripteurs de fichiers ouverts.
+- Libérez toute mémoire allouée dynamiquement.
+- Affichez des messages d'erreur clairs et précis en cas de problème.
+
+---
+
+## Conseils importants
+
+1. **Respectez le format d'appel :**
+   ```bash
+   ./pipex infile cmd1 cmd2 outfile
+   ```
+2. **Redirections des pipes :**
+   - `pipe[0]` pour la lecture.
+   - `pipe[1]` pour l'écriture.
+3. **Fermez tout ce que vous ouvrez :**
+   - Chaque descripteur de fichier ouvert doit être fermé avant de quitter le programme.
+
+---
+
+## Bonus
+
+Si vous avez terminé la partie obligatoire, ajoutez des fonctionnalités bonus comme :
+- Gérer plusieurs pipes (plus de deux commandes).
+- Gérer des arguments avec des guillemets ou des espaces.
+- Gérer les commandes shell intégrées comme `echo` ou `cd`.
+
+---
+
+## Ressources utiles
+
+- [Documentation sur les pipes](https://man7.org/linux/man-pages/man2/pipe.2.html)
+- [Guide sur les processus en C](https://www.geeksforgeeks.org/fork-system-call/)
+- [Tutoriel sur execve](https://linux.die.net/man/2/execve)
+
+---
+
+Bonne chance pour votre projet **pipex** ! N'oubliez pas de bien tester votre programme avec différents scénarios pour vérifier sa robustesse.
+
  
